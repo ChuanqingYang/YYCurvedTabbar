@@ -10,58 +10,58 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 public struct YYTabbarItem {
-    var icon:String
-    var title:String
+    public var icon:String
+    public var title:String
     // if the icon is system icon
-    var system_icon:Bool = true
-    var spacing:CGFloat = 5
+    public var system_icon:Bool = true
+    public var spacing:CGFloat = 5
 }
 
 @available(iOS 15.0, *)
 public struct YYTabbarConfiguration {
     
-    var horizontalPadding:CGFloat = 0
-    var contentHeight:CGFloat = 49
-    var curveHeight:CGFloat = 21
+    public var horizontalPadding:CGFloat = 0
+    public var contentHeight:CGFloat = 49
+    public var curveHeight:CGFloat = 21
     
-    enum CurveStyle {
+    public enum CurveStyle {
         case stroke(style:LinearGradient = LinearGradient(colors: [.gray,.clear], startPoint: .top, endPoint: .bottom),width:CGFloat = 1)
         case fill(style:LinearGradient = LinearGradient(colors: [.white], startPoint: .top, endPoint: .bottom))
     }
-    var style:CurveStyle = .stroke()
+    public var style:CurveStyle = .stroke()
     
-    struct Shadow {
-        var color:Color = .clear
-        var radius:CGFloat = 4
-        var offset:CGPoint = .init(x: 0, y: -2)
+    public struct Shadow {
+        public var color:Color = .clear
+        public var radius:CGFloat = 4
+        public var offset:CGPoint = .init(x: 0, y: -2)
     }
     
-    var shadow:Shadow = .init()
+    public var shadow:Shadow = .init()
     
-    var animation:Animation = .spring()
+    public var animation:Animation = .spring()
     
     
-    var title_font:Font = .caption2
-    var select_color:Color = .primary
-    var normal_color:Color = .primary
+    public var title_font:Font = .caption2
+    public var select_color:Color = .primary
+    public var normal_color:Color = .primary
     
-    var selection_bg_color:Color = .yellow
-    var selection_bg_padding:CGFloat = 6
-    var selection_bg_offset:CGFloat = -15
+    public var selection_bg_color:Color = .yellow
+    public var selection_bg_padding:CGFloat = 6
+    public var selection_bg_offset:CGFloat = -15
     
-    enum SelectionStyle {
+    public enum SelectionStyle {
         case follow
         case scale
     }
     
-    var selection_style:SelectionStyle = .scale
+    public var selection_style:SelectionStyle = .scale
     
-    enum ContentStyle {
+    public enum ContentStyle {
         case blur(style:UIBlurEffect.Style)
         case fill(style:LinearGradient)
     }
     
-    var content_style:ContentStyle = .fill(style: .linearGradient(colors: [.yellow,.yellow.opacity(0.2),.yellow.opacity(0)], startPoint: .bottom, endPoint: .top))
+    public var content_style:ContentStyle = .fill(style: .linearGradient(colors: [.yellow,.yellow.opacity(0.2),.yellow.opacity(0)], startPoint: .bottom, endPoint: .top))
 }
 
 @available(iOS 15.0, *)
