@@ -91,7 +91,7 @@ public struct YYCurvedTabbar: View {
     public var body: some View {
         Rectangle()
             .fill(Color.clear)
-            .overlay {
+            .overlay(alignment:.top) {
                 switch self.config.content_style {
                     case let .fill(style):
                         Rectangle()
@@ -100,9 +100,9 @@ public struct YYCurvedTabbar: View {
                         BlurEffectView(style: style)
                 }
             }
-            .clipShape(TabbarBackShape(currentIndex: Double(currentIndex),totalItems:items.count,curveHorizontalPadding:self.config.horizontalPadding,contentHeight: self.config.contentHeight))
-            .frame(height: self.config.curveHeight + self.config.contentHeight)
-            .overlay(alignment:.bottom,content: {
+            .clipShape(TabbarBackShape(currentIndex: Double(currentIndex),totalItems:items.count,curveHorizontalPadding:self.config.horizontalPadding,contentHeight: self.config.contentHeight + safe_area.bottom))
+            .frame(height: self.config.curveHeight + self.config.contentHeight + safe_area.bottom)
+            .overlay(alignment:.top,content: {
                 HStack {
                     ForEach(items.indices,id: \.self) { index in
                         let item = items[index]
@@ -152,15 +152,16 @@ public struct YYCurvedTabbar: View {
                     }
                 }
                 .padding(.horizontal,5)
+                .offset(y: self.config.curveHeight)
             })
-            .overlay {
+            .overlay(alignment:.top) {
                 switch self.config.style {
                     case let .stroke(style, width):
-                        TabbarBackShape(currentIndex: Double(currentIndex),totalItems:items.count,curveHorizontalPadding:self.config.horizontalPadding,contentHeight: self.config.contentHeight)
+                        TabbarBackShape(currentIndex: Double(currentIndex),totalItems:items.count,curveHorizontalPadding:self.config.horizontalPadding,contentHeight: self.config.contentHeight + safe_area.bottom)
                             .stroke(style, lineWidth: width)
                             .shadow(color: self.config.shadow.color, radius: self.config.shadow.radius, x: self.config.shadow.offset.x, y: self.config.shadow.offset.y)
                     case let .fill(style):
-                        TabbarBackShape(currentIndex: Double(currentIndex),totalItems:items.count,curveHorizontalPadding:self.config.horizontalPadding,contentHeight: self.config.contentHeight)
+                        TabbarBackShape(currentIndex: Double(currentIndex),totalItems:items.count,curveHorizontalPadding:self.config.horizontalPadding,contentHeight: self.config.contentHeight + safe_area.bottom)
                             .fill(style)
                             .shadow(color: self.config.shadow.color, radius: self.config.shadow.radius, x: self.config.shadow.offset.x, y: self.config.shadow.offset.y)
                 }
@@ -242,7 +243,7 @@ public struct TabbarBackShape: Shape {
         return path
     }
 }
-
+// MARK: - Blur
 @available(iOS 15.0, *)
 struct BlurEffectView: UIViewRepresentable {
     
@@ -257,4 +258,12 @@ struct BlurEffectView: UIViewRepresentable {
     
     }
 }
+// MARK: - Utls
 
+@available(iOS 15.0, *)
+var safe_area:UIEdgeInsets = {
+    guard let scence = UIApplication.shared.connectedScenes.first as? UIWindowScene else {  return .init()}
+    guard let window = scence.windows.first else { return .init() }
+    
+    return window.safeAreaInsets
+}()

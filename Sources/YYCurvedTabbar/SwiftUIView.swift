@@ -13,7 +13,14 @@ struct SwiftUIView: View {
     
     @State private var selection:Int = 0
     var body: some View {
-        YYCurvedTabbar(items: items, selection: $selection)
+        VStack {
+            Text("123")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .overlay(alignment: .bottom) {
+            YYCurvedTabbar(items: items, selection: $selection)
+        }
+        .ignoresSafeArea()
     }
 }
 
