@@ -82,7 +82,7 @@ public struct YYCurvedTabbar: View {
     @Binding var currentIndex:Int
     @Namespace private var namespace
     
-    init(config:YYTabbarConfiguration = .init(),items: [YYTabbarItem], selection:Binding<Int>) {
+    public init(config:YYTabbarConfiguration = .init(),items: [YYTabbarItem], selection:Binding<Int>) {
         self.config = config
         self.items = items
         _currentIndex = selection
