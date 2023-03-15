@@ -15,6 +15,13 @@ public struct YYTabbarItem {
     // if the icon is system icon
     public var system_icon:Bool = true
     public var spacing:CGFloat = 5
+    
+    public init(icon:String,title:String,system_icon:Bool = true,spacing:CGFloat = 5) {
+        self.icon = icon
+        self.title = title
+        self.system_icon = system_icon
+        self.spacing = spacing
+    }
 }
 
 @available(iOS 15.0, *)
@@ -62,6 +69,10 @@ public struct YYTabbarConfiguration {
     }
     
     public var content_style:ContentStyle = .fill(style: .linearGradient(colors: [.yellow,.yellow.opacity(0.2),.yellow.opacity(0)], startPoint: .bottom, endPoint: .top))
+    
+    public init() {
+        
+    }
 }
 
 @available(iOS 15.0, *)
