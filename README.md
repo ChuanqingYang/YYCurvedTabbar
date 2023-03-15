@@ -4,8 +4,8 @@ A curved tabbar with animation.
 
 ## Preview
 
-![iPhone8](https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/preview.png)
-![Video](https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/animation.gif)
+<img src="https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/preview.png">
+<img src="https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/animation.gif" width="200" height="250">
 
 ## Features
 - Custom selection animation `YYTabbarConfiguration.SelectionStyle`
