@@ -4,8 +4,7 @@ A curved tabbar with animation.
 
 ## Preview
 
-![iPhone8](https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/iPhone-8.png)
-![iPhone14](https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/iPhone-14.png)
+![iPhone8](https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/preview.png)
 ![Video](https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/animation.mp4)
 
 ## Features
