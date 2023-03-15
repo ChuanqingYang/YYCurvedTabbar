@@ -4,8 +4,10 @@ A curved tabbar with animation.
 
 ## Preview
 
-<img src="https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/preview.png">
-<img src="https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/animation.gif" width="200" height="250">
+<div>
+    <img src="https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/preview.png" height="450">
+    <img src="https://github.com/ChuanqingYang/YYCurvedTabbar/blob/main/animation.gif" width="250" height="450">
+</div>
 
 ## Features
 - Custom selection animation `YYTabbarConfiguration.SelectionStyle`
